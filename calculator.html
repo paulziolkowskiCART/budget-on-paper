@@ -11,7 +11,8 @@
         href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Budget on Paper</title>
+    <script type="module" src="js/calculator.js"></script>
+    <title>Calculator - Budget on Paper</title>
 </head>
 
 <body>
@@ -22,8 +23,8 @@
         <div class="navbar">
             <div class="container flex center-justify">
                 <ul id="navbar-content" class="navbar-content flex">
-                    <li class="navbar-item"><a class="bold" href="/">Select a Career</a></li>
-                    <li class="navbar-item"><a href="/calculator.html">Calculator</a></li>
+                    <li class="navbar-item"><a href="/">Select a Career</a></li>
+                    <li class="navbar-item"><a class="bold" href="/calculator.html">Calculator</a></li>
                 </ul>
             </div>
         </div>
@@ -31,14 +32,17 @@
     <div class="article">
         <div class="container">
             <div class="content-box">
-                <div class="content">
-                    <h2>Select a Career Option</h2>
-                    <p>Search for and select a career option from the list and view it's gross annual income.</p>
-                    <div class="career-options">
-                        <div class="career-options-list flex wrap">
-                            <script type="module" src="js/career-options.js"></script>
-                        </div>
-                    </div>
+                <div class="content flex column center-justify">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Test</th>
+                                <td>50%</td>
+                                <td></td>
+                                <td>$1,000,000.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
