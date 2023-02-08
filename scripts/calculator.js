@@ -47,8 +47,8 @@ for (const deduction of data) {
         `;
     }
     let total = typeof percentage == 'number' ? monthlySalary * percentage : (amount || 0);
-    row += `<td class="end">=</td>
-    <td class="deduction-total">${isNaN(monthlySalary) ? '?' : currencyFormatter.format(total)}</td>
+    row += `<td class="end">${isNaN(monthlySalary) ? '' : '='}</td>
+    <td class="deduction-total">${isNaN(monthlySalary) ? '' : currencyFormatter.format(total)}</td>
     `;
     totalDeductions = totalDeductions + total;
     body.innerHTML += row;
