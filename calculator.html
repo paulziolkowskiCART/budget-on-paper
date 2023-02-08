@@ -11,7 +11,8 @@
         href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="js/calculator.js"></script>
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <script type="module" src="scripts/calculator.js"></script>
     <title>Calculator - Budget on Paper</title>
 </head>
 
@@ -25,6 +26,7 @@
                 <ul id="navbar-content" class="navbar-content flex">
                     <li class="navbar-item"><a href="/">Select a Career</a></li>
                     <li class="navbar-item"><a class="bold" href="/calculator.html">Calculator</a></li>
+                    <li class="navbar-item"><a href="/register.html">Check Register</a></li>
                 </ul>
             </div>
         </div>
@@ -33,15 +35,18 @@
         <div class="container">
             <div class="content-box">
                 <div class="content flex column center-justify">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th scope="row">Test</th>
-                                <td>50%</td>
+                    <table id="pay-period-deductions" class="pay-period-deductions">
+                        <caption class="pay-period-deductions-caption bold">Pay Period Deductions</caption>
+                        <tbody class="pay-period-deductions-body"></tbody>
+                        <tfoot class="pay-period-deductions-foot">
+                            <tr class="total-deductions">
+                                <th class="bold deduction-name" scope="row">Total Deductions</th>
                                 <td></td>
-                                <td>$1,000,000.00</td>
+                                <td></td>
+                                <td class="end">=</td>
+                                <td class="bold deduction-total">$5,544.00</td>
                             </tr>
-                        </tbody>
+                        </tfoot>
                     </table>
                 </div>
             </div>

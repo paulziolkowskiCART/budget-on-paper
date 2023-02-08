@@ -1,5 +1,4 @@
-// This is a modified version of the original EECU-data.js to support ECMAScript6 modules and imports.
-// Original data was cleaned for grammar and spelling mistakes.
+// Modified version of the original EECU-data.js
 
 export const data = [
     ['Accountant', 55650],
@@ -18,7 +17,7 @@ export const data = [
     ['Chemist', 56700],
     ['Civil Engineering Technician', 68250],
     ['Commercial Driver', 51450],
-    ['ComputerTechnician', 46200],
+    ['Computer Technician', 46200],
     ['Conserv./Environ. Science', 72450],
     ['Correctional Officer', 48300],
     ['Cosmetologist', 36750],
@@ -48,7 +47,7 @@ export const data = [
     ['Lawyer', 86100],
     ['Marketing/Sales Manager', 58800],
     ['Media/Communications', 45150],
-    ['Medical RepairTech.', 52500],
+    ['Medical Repair Tech.', 52500],
     ['Military', 55650],
     ['Nurse', 66150],
     ['Nutritionist', 45150],
@@ -71,5 +70,5 @@ export const data = [
     ['UPS/Fed Ex Driver', 68250],
     ['Veterinarian', 82950],
     ['Welder/Metal Specialist', 47250],
-    ['Wind Energy Technician', 56700]
-]
+    ['Wind Energy Technician', 56700],
+];

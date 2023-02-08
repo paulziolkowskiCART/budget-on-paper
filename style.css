@@ -1,6 +1,11 @@
 :root {
     --default-foreground: #343536;
+    --default-foreground-50: #34353650;
+    --default-foreground-75: #34353675;
     --default-background: #fbf9f6;
+    --highlight: #ffda1450;
+    --green-highlight: #39ff1450;
+    --purple-highlight: #dc14ff50;
 }
 
 * {
@@ -19,7 +24,7 @@ body {
 
 header {
     color: var(--default-foreground);
-    padding: 1rem 0 0.2rem;
+    padding-block: 1rem 0.2rem;
 }
 
 h1 {
@@ -38,14 +43,45 @@ ol {
     list-style: none;
 }
 
-tr:not(:last-child) :is(th, td) {
-    padding: 0.25em 0;
-    border-bottom: 2px dashed var(--default-foreground);
-    border-collapse: collapse;
+table {
+    padding: 0 0.75em;
+    border: 2px dashed var(--default-foreground);
+    border-radius: 1rem;
+}
+
+caption {
+    margin-block-end: 0.75em;
 }
 
 td {
     font-family: 'Roboto Slab', serif;
+}
+
+td,
+th {
+    padding: 0.75em 0;
+}
+
+tbody > :not(:last-child) :is(td, th) {
+    border-bottom: 2px dashed var(--default-foreground);
+    border-collapse: collapse;
+}
+
+tfoot {
+    font-size: 24px;
+}
+
+tfoot > :first-child :is(td, th) {
+    border-top: 2px solid var(--default-foreground);
+    border-collapse: collapse;
+}
+
+.foreground-faded {
+    color: var(--default-foreground-75);
+}
+
+.small {
+    font-size: 16px;
 }
 
 .bold {
@@ -56,9 +92,13 @@ td {
     text-align: center;
 }
 
+.end {
+    text-align: end;
+}
+
 .help {
     cursor: help;
-    text-decoration: underline #ffda1450 solid 3px;
+    text-decoration: underline var(--highlight) solid 3px;
 }
 
 .flex {
@@ -92,7 +132,7 @@ td {
 }
 
 .navbar {
-    padding-top: 0.2rem;
+    padding-block-start: 0.2rem;
 }
 
 .navbar-content > :not(:last-child) {
@@ -114,13 +154,13 @@ td {
 }
 
 .content-box {
-    padding: 1rem 0;
-    border: 2px dashed var(--default-foreground);
+    padding: 1.25em 0;
+    border: 3px dashed var(--default-foreground-50);
     border-radius: 1.25rem;
 }
 
 .content {
-    margin: 0 1.25rem;
+    margin: 0 1.25em;
 }
 
 .content ul {
@@ -138,7 +178,7 @@ td {
 }
 
 .career-options-list {
-    --career-options-list-gap: 0.5rem;
+    --career-options-list-gap: 0.75em;
     gap: var(--career-options-list-gap);
 }
 
@@ -148,17 +188,44 @@ td {
     padding: 0.8rem 0.666rem;
     border: 2px dashed var(--default-foreground);
     border-radius: 1rem;
+    transition: background 500ms ease-out;
 }
 
 .career-options-list-item:hover {
-    border: 2px solid var(--default-foreground);
+    background: var(--default-background);
+    border-style: solid;
+    box-shadow: 2px 2px 5px var(--default-foreground);
 }
 
-.salary {
-    background: #39ff1450;
+.career-options-list-item:hover .bubble.salary {
+    font-weight: bold;
+}
+
+.bubble {
     padding: 0.2em 0.5em;
     border-radius: 2em;
     font-family: 'Roboto Slab', serif;
     font-size: 16px;
+}
+
+.salary {
+    background: var(--green-highlight);
     align-self: flex-start;
+}
+
+.deduction-name {
+    text-align: start;
+}
+
+.total-deductions .deduction-name {
+    color: darkred;
+}
+
+.deduction-percentage,
+.deduction-amount {
+    background: var(--purple-highlight);
+}
+
+.deduction-total {
+    text-align: end;
 }

@@ -6,4 +6,4 @@ export const data = [
     ['State Disability', 0.01, null],
     ['Retirement Investment', 0.05, null],
     ['Medical Insurance', null, 180]
-]
+];
