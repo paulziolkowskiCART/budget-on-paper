@@ -3,7 +3,7 @@ import { data } from './deductions-data.js';
 // Source: https://developer.mozilla.org/en-US/docs/Web/API/URL/searchParams#examples
 const searchParams = (new URL(document.location)).searchParams;
 
-const salary = parseInt(searchParams.get('salary'));
+const salary = parseFloat(searchParams.get('salary'));
 
 const monthlySalary = salary / 12;
 
@@ -12,10 +12,40 @@ const currencyFormatter = Intl.NumberFormat(undefined, {
     currency: 'USD'
 });
 
+const yourCareerOption = document.getElementById('your-career-option');
+const yourSalary = document.getElementById('your-salary');
+const yourMonthlySalary = document.getElementById('your-monthly-salary');
+
 const body = document.getElementsByClassName('pay-period-deductions-body')[0];
 const totalDeductionsElement = document.getElementsByClassName('total-deductions')[0].lastElementChild;
 
+
 let totalDeductions = 0;
+
+if (!(searchParams.get('name'))) {
+    yourCareerOption.classList.add('none');
+}
+
+let input;
+
+if (isNaN(salary)) {
+    yourSalary.innerHTML = '<h3>Your salary:</h3><div class="result">$ <input type="number" placeholder="1" name="salary" id="salary" class="result"></div>';
+    input = document.querySelector('input');
+    yourMonthlySalary.classList.add('none');
+    document.querySelector('table').classList.add('none');
+} else {
+    yourSalary.getElementsByClassName('result')[0].textContent = currencyFormatter.format(salary);
+}
+
+yourCareerOption.getElementsByClassName('result')[0].textContent = searchParams.get('name');
+yourMonthlySalary.getElementsByClassName('before-monthly-salary')[0].textContent = currencyFormatter.format(salary);
+yourMonthlySalary.getElementsByClassName('salary')[0].textContent = currencyFormatter.format(monthlySalary);
+
+if (input) {
+    input.addEventListener('change', () => {
+        window.location.search = `salary=${parseFloat(input.value)}`;
+    })
+}
 
 for (const deduction of data) {
     const [name, percentage, amount] = [...deduction];
