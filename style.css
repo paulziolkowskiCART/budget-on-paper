@@ -324,4 +324,31 @@ tfoot > :first-child :is(td, th) {
         min-inline-size: 0;
         inline-size: 100%;
     }
+
+    header {
+        padding-block: 1em 0.5em;
+    }
+
+    .navbar {
+        padding-block: 0.5em;
+    }
+
+    .navbar-content {
+        inline-size: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-content > :not(:last-child) {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        margin-block-end: 1.25em;
+        padding-block-end: 1.25em;
+        border-block-end: 2px dotted var(--default-foreground);
+    }
+
+    .navbar-item a {
+        display: inline-block;
+        inline-size: 100%;
+    }
 }
