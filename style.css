@@ -178,7 +178,7 @@ tfoot > :first-child :is(td, th) {
 }
 
 .article {
-    padding-block-start: 1rem;
+    margin-block: 1rem;
 }
 
 .content-box {
@@ -311,8 +311,12 @@ tfoot > :first-child :is(td, th) {
     padding-inline: 0.25em;
 }
 
-.plus {
-    inline-size: 100%;
+.copyright {
+    margin-block: 2rem;
+}
+
+.copyright .bubble {
+    border: 1px dotted var(--default-foreground-50);
 }
 
 @media screen and (max-width: 960px) {
