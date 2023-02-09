@@ -15,10 +15,10 @@ const currencyFormatter = Intl.NumberFormat(undefined, {
 const yourCareerOption = document.getElementById('your-career-option');
 const yourSalary = document.getElementById('your-salary');
 const yourMonthlySalary = document.getElementById('your-monthly-salary');
+const yourMonthlySalaryAfterDeductions = document.getElementById('your-monthly-salary-after-deductions');
 
 const body = document.getElementsByClassName('pay-period-deductions-body')[0];
 const totalDeductionsElement = document.getElementsByClassName('total-deductions')[0].lastElementChild;
-
 
 let totalDeductions = 0;
 
@@ -32,14 +32,11 @@ if (isNaN(salary)) {
     yourSalary.innerHTML = '<h3>Your salary:</h3><div class="result">$ <input type="number" placeholder="1" name="salary" id="salary" class="result"></div>';
     input = document.querySelector('input');
     yourMonthlySalary.classList.add('none');
+    yourMonthlySalaryAfterDeductions.classList.add('none');
     document.querySelector('table').classList.add('none');
 } else {
     yourSalary.getElementsByClassName('result')[0].textContent = currencyFormatter.format(salary);
 }
-
-yourCareerOption.getElementsByClassName('result')[0].textContent = searchParams.get('name');
-yourMonthlySalary.getElementsByClassName('before-monthly-salary')[0].textContent = currencyFormatter.format(salary);
-yourMonthlySalary.getElementsByClassName('salary')[0].textContent = currencyFormatter.format(monthlySalary);
 
 if (input) {
     input.addEventListener('change', () => {
@@ -85,3 +82,9 @@ for (const deduction of data) {
 }
 
 totalDeductionsElement.innerHTML = isNaN(totalDeductions) ? '?' : currencyFormatter.format(totalDeductions);
+
+yourCareerOption.getElementsByClassName('result')[0].textContent = searchParams.get('name');
+yourMonthlySalary.getElementsByClassName('before-monthly-salary')[0].textContent = currencyFormatter.format(salary);
+yourMonthlySalary.getElementsByClassName('salary')[0].textContent = currencyFormatter.format(monthlySalary);
+yourMonthlySalaryAfterDeductions.getElementsByClassName('result')[0].innerHTML = `<div class="result"><span class="salary bubble">${currencyFormatter.format(monthlySalary)}</span> <span id="deduction" class="bold" style="color: darkred;">- ${currencyFormatter.format(totalDeductions)}</span> = <span class="bold bubble net">${currencyFormatter.format(monthlySalary - totalDeductions)}</span></div>
+`;

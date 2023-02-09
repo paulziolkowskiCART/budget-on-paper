@@ -268,6 +268,11 @@ tfoot > :first-child :is(td, th) {
     background: var(--purple-highlight);
 }
 
+.net {
+    background: var(--highlight);
+    /* border: 2px solid var(--default-foreground); */
+}
+
 .deduction-total {
     text-align: end;
 }
@@ -289,7 +294,7 @@ tfoot > :first-child :is(td, th) {
     border-radius: 1rem;
 }
 
-:is(.your-salary, .your-monthly-salary) .result {
+:is(.your-salary, .your-monthly-salary, .your-monthly-salary-after-deductions) .result {
     font-family: 'Roboto Slab', serif;
 }
 
