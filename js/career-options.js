@@ -1,6 +1,6 @@
 import { data } from './EECU-data.js';
 
-const formatter = Intl.NumberFormat(undefined, {
+const formatter = Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD'
 });
@@ -25,6 +25,7 @@ function createListItem(name, salary) {
 
     listItem.classList.add('career-options-list-item', 'flex', 'column');
     listItem.href = `/calculator.html?name=${encodedName}&salary=${salary}`;
+    listItem.dataset.name = name;
     listItem.append(header, bubble);
 
     return listItem;
@@ -33,19 +34,30 @@ function createListItem(name, salary) {
 document.addEventListener('DOMContentLoaded', () => {
     const careerOptionsList = document.getElementById('career-options-list');
 
+    // Create list items from the data given
     const listItems = data.map(o => createListItem(...o));
 
     careerOptionsList.append(...listItems);
 
     const search = document.getElementById('search');
 
-    search.addEventListener('input', () => {
-        const value = search.value;
-        for (const item of document.getElementsByClassName('career-options-list-item')) {
-            item.classList.remove('none');
-            if (item.getElementsByTagName('h3')[0].textContent.toLocaleLowerCase().trim().indexOf(value.toLocaleLowerCase().trim())) {
-                item.classList.add('none');
-            }
+    search.addEventListener('input', e => {
+        const value = e.target.value.trim().toLowerCase();
+
+        const items = document.getElementsByClassName('career-options-list-item');
+
+        if (value.length > 0) {
+            // Show only what matches from the search
+            Array.prototype.forEach.call(items, i => {
+                const name = i.dataset.name.trim().toLowerCase();
+
+                const isMatch = name.includes(value);
+
+                i.classList.toggle('none', !isMatch);
+            });
+        } else {
+            // Show all the items because the search is empty
+            Array.prototype.forEach.call(items, i => i.classList.toggle('none', false));
         }
     });
 });
