@@ -205,7 +205,7 @@ tfoot > :first-child :is(td, th) {
     margin-block-start: 1.5rem;
 }
 
-.career-options-list {
+#career-options-list {
     --career-options-list-gap: 0.75em;
     gap: var(--career-options-list-gap);
 }
