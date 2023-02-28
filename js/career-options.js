@@ -1,5 +1,6 @@
 import { data } from './EECU-data.js';
 
+// https://stackoverflow.com/questions/149055/how-to-format-numbers-as-currency-strings
 const formatter = Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD'
@@ -25,6 +26,7 @@ function createListItem(name, salary) {
 
     listItem.classList.add('career-options-list-item', 'flex', 'column');
     listItem.href = `/calculator.html?name=${encodedName}&salary=${salary}`;
+    // Give each list item a name to help with searching
     listItem.dataset.name = name;
     listItem.append(header, bubble);
 
@@ -41,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const search = document.getElementById('search');
 
+    // Update the list when the user inputs into the search box
     search.addEventListener('input', e => {
         const value = e.target.value.trim().toLowerCase();
 
