@@ -1,10 +1,9 @@
 :root {
-    --default-foreground: #343536;
-    --default-foreground-50: #34353650;
-    --default-foreground-75: #34353675;
-    --default-background: #fbf9f6;
-    --highlight: #ffda1450;
-    --green-highlight: #39ff1450;
+    --foreground: #343637;
+    --background: #fbf9f6;
+    --line: #95d6e5;
+    --highlight: #ffdc1450;
+    --green-highlight: #38ff1450;
     --purple-highlight: #dc14ff50;
 }
 
@@ -13,342 +12,272 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
+    scrollbar-color: var(--line) var(--background);
+}
+
+html {
+    font-size: 24px;
+    font-family: 'Indie Flower', cursive;
 }
 
 body {
-    --body-background-size: 32px 32px;
-    color: var(--default-foreground);
-    background: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_18_3)'%3E%3Crect width='32' height='32' fill='%23FBF9F6'/%3E%3Cg filter='url(%23filter0_f_18_3)'%3E%3Cpath d='M-1 16H33M16 -1V33' stroke='%2395D6E5' stroke-opacity='0.5' stroke-linejoin='round'/%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_18_3' x='-2' y='-2' width='36' height='36' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='0.5' result='effect1_foregroundBlur_18_3'/%3E%3C/filter%3E%3CclipPath id='clip0_18_3'%3E%3Crect width='32' height='32' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") var(--body-background-size);
-    font-family: 'Indie Flower', cursive;
-    font-size: 20px;
-    /* writing-mode: sideways-lr; */
-}
-
-header {
-    color: var(--default-foreground);
-    padding-block: 0.5em 0.25em;
-}
-
-h1 {
-    font-size: 44px;
-    text-align: center;
-    text-shadow: #fc0 1px 0 10px;
-}
-
-h3 {
-    margin-block-end: 0.25em;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: var(--foreground);
+    background: url("data:image/svg+xml,%3Csvg width='192' height='192' viewBox='0 0 192 192' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_101_2)'%3E%3Cg filter='url(%23filter0_f_101_2)'%3E%3Cpath d='M64 -2V194M96 -2V194M128 -2V194M160 -2V194M192 -2V194M0 -2V194M-2 0H194M-2 64H194M-2 96H194M-2 128H194M-2 160H194M-2 192H194' stroke='%2395D6E5' stroke-opacity='0.4'/%3E%3C/g%3E%3Cg filter='url(%23filter1_f_101_2)'%3E%3Cpath d='M32 -2V194M-2 32H194' stroke='%2395D6E5' stroke-opacity='0.6' stroke-width='2'/%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_101_2' x='-3' y='-3' width='198' height='198' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='0.5' result='effect1_foregroundBlur_101_2'/%3E%3C/filter%3E%3Cfilter id='filter1_f_101_2' x='-3' y='-3' width='198' height='198' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='0.5' result='effect1_foregroundBlur_101_2'/%3E%3C/filter%3E%3CclipPath id='clip0_101_2'%3E%3Crect width='192' height='192' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") var(--background);
 }
 
 a {
-    color: var(--default-foreground);
+    color: inherit;
     text-decoration: none;
-}
-
-input {
-    background: none;
-    /* padding-inline: 0.75em; */
-    border-block-end: 2px dotted var(--default-foreground);
-}
-
-input:focus {
-    border: none;
-    border-radius: 2em;
-    outline-offset: 0.25em;
 }
 
 ul,
 ol {
-    list-style: none;
+    list-style-type: none;
 }
 
-table {
-    inline-size: 100%;
-    padding-inline: 0.75em;
-    margin-block-start: 0.75em;
-    border: 2px dashed var(--default-foreground);
-    border-radius: 1rem;
+input[type='text'] {
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
 }
 
-caption {
-    margin-block-end: 0.75em;
+.hide {
+    display: none !important;
 }
 
-td {
-    font-family: 'Roboto Slab', serif;
+.main section > :is(h1, h2, h3, h4, h5, h6, p, ul, ol, hr),
+.option-card > :first-child {
+    text-shadow: var(--background) 0 0 2px, var(--background) 0 0 4px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px;
 }
 
-td,
-th {
-    padding-block: 0.75em;
+.main h2 {
+    margin-block-end: 0.2em;
 }
 
-th[scope=col] {
-    /* border-inline-end: 2px dotted var(--default-foreground-75); */
+.main a,
+.footer a,
+.option-no-results {
+    color: #2789a0;
+    text-decoration: dotted;
 }
 
-tbody > :not(:last-child) :is(td, th) {
-    border-block-end: 2px dashed var(--default-foreground);
-    border-collapse: collapse;
+.main a:visited,
+.footer a:visited {
+    color: #52a0b3;
 }
 
-tfoot {
-    font-size: 24px;
+.main ul {
+    list-style-type: disc;
+    padding-inline-start: 1em;
 }
 
-tfoot > :first-child :is(td, th) {
-    border-block-start: 2px solid var(--default-foreground);
-    border-collapse: collapse;
+.main ol {
+    list-style-type: decimal;
+    padding-inline-start: 1em;
 }
 
-.foreground-faded {
-    color: var(--default-foreground-75);
+.main hr {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    margin-block: 0.75em 1.25em;
+    margin-inline: 0.75em;
 }
 
-.small {
-    font-size: 16px;
+.header {
+    background: linear-gradient(var(--background), var(--background) 50%, transparent);
+    padding: 1em 0;
 }
 
-.bold {
-    font-weight: bold;
+.header-container,
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75em;
+    max-width: 1080px;
+    min-width: 0;
+    width: 90%;
+    margin: 0 auto;
 }
 
-.center {
-    text-align: center;
+.title {
+    font-size: 2rem;
+    text-shadow: var(--line) 0 0 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.end {
-    text-align: end;
-}
-
-.help {
-    cursor: help;
-    text-decoration: underline var(--highlight) solid 3px;
-}
-
-.flex {
+.navbar-list {
     display: flex;
 }
 
-.none {
-    display: none;
+.navbar-list-item:not(:last-child) {
+    margin-right: 1em;
+    padding-right: 1em;
+    border-right: 2px dashed var(--foreground);
 }
 
-.column {
-    flex-direction: column;
+.navbar-list-item a {
+    transition: text-shadow 0.1s cubic-bezier(0.65, 0.05, 0.36, 1);
 }
 
-.center-justify {
-    justify-content: center;
+.navbar-list-item a > strong {
+    text-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px;
 }
 
-.center-align {
-    align-items: center;
+.navbar-list-item a:hover {
+    text-shadow: rgba(0, 0, 0, 0.4) 1px 1px 2px;
 }
 
-.wrap {
-    flex-wrap: wrap;
+.footer {
+    font-size: 0.875em;
+    background: linear-gradient(transparent, var(--background) 50%, var(--background));
+    padding: 3em 0;
 }
 
-.container {
-    --container-width: 90%;
-    --container-min-width: 0;
-    --container-max-width: 960px;
-    inline-size: var(--container-width);
-    min-inline-size: var(--container-min-width);
-    max-inline-size: var(--container-max-width);
-    margin-inline: auto;
+.footer a:hover {
+    text-decoration: underline solid;
+    text-shadow: var(--line) 0 0 4px;
 }
 
-.navbar {
-    padding-block: 0.25em;
+.footer-container {
+    gap: 2em;
 }
 
-.navbar-content > :not(:last-child) {
-    margin-inline-end: 1.25em;
-    padding-inline-end: 1.25em;
-    border-inline-end: 2px dotted var(--default-foreground);
-}
-
-.navbar-item {
-    text-shadow: 1px 0 0 var(--default-background), 0 1px 0 var(--default-background), -1px 0 0 var(--default-background), 0 -1px 0 var(--default-background);
-}
-
-.navbar-item a:hover {
-    font-weight: bold;
-}
-
-.article {
-    margin-block: 1rem;
-}
-
-.content-box {
-    padding-block: 1.25em;
-    border: 3px dashed var(--default-foreground-50);
-    border-radius: 1.25rem;
-}
-
-.content {
-    margin-inline: 1.25em;
-}
-
-.content ul {
-    list-style: disc;
-    margin-inline-start: 2em;
-}
-
-.content ol {
-    list-style: decimal;
-    margin-inline-start: 2em;
-}
-
-.career-options {
-    margin-block-start: 1.5rem;
-}
-
-#career-options-list {
-    --career-options-list-gap: 0.75em;
-    gap: var(--career-options-list-gap);
-}
-
-.career-options-list-item {
-    --career-options-list-item-columns: 4;
-    min-inline-size: calc(calc(100% - calc(var(--career-options-list-gap) * calc(var(--career-options-list-item-columns) - 1))) / var(--career-options-list-item-columns));
-    padding-block: 0.8em;
-    padding-inline: 0.666em;
-    border: 2px dashed var(--default-foreground);
-    border-radius: 1rem;
-    transition: background 500ms ease-out;
-}
-
-.career-options-list-item:hover {
-    background: var(--default-background);
-    border-style: solid;
-    box-shadow: 2px 2px 5px var(--default-foreground);
-}
-
-.career-options-list-item:hover .bubble.salary {
-    font-weight: bold;
-}
-
-.career-options-search {
-    margin-block-start: 1.5rem;
-    gap: 0.5rem;
-    font-size: 32px;
-}
-
-.career-options-search img {
-    width: 1em;
-}
-
-.career-options-search input {
-    padding-inline: 0.75em;
-    flex: auto;
-}
-
-.bubble {
-    display: inline-block;
-    padding-block: 0.25em;
+.year {
+    font-family: 'Roboto Slab', serif;
+    margin-inline: 0.25em;
     padding-inline: 0.5em;
+    padding-block: 0.25em;
+    border: 2px dashed rgba(0, 0, 0, 0.1);
     border-radius: 2em;
-    font-family: 'Roboto Slab', serif;
-    font-size: 1em;
     vertical-align: middle;
+    transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.salary {
-    background: var(--green-highlight);
-    align-self: flex-start;
+.copy:hover .year {
+    border-color: rgba(0, 0, 0, 0.4);
+    text-shadow: var(--line) 0 0 8px;
 }
 
-.deduction-name {
-    text-align: start;
+.footer-info-list {
+    display: flex;
 }
 
-.total-deductions .deduction-name {
-    color: darkred;
+.footer-info-list li:not(:last-child) {
+    margin-right: 2em;
 }
 
-.deduction-percentage,
-.deduction-amount {
-    background: var(--purple-highlight);
+.main-wrapper {
+    flex: 1;
+    padding: 1em 0;
 }
 
-.net {
-    background: var(--highlight);
-    /* border: 2px solid var(--default-foreground); */
+.main {
+    max-width: 1080px;
+    min-width: 0;
+    width: 90%;
+    margin: 0 auto;
+    border: 2px dashed rgba(0, 0, 0, 0.4);
+    border-radius: 1em;
 }
 
-.deduction-total {
-    text-align: end;
+.article > * {
+    margin-bottom: 1.25em;
+    padding: 1.25em 1.25em 0;
 }
 
-.result {
-    font-size: 2rem;
-    /* line-height: 2rem; */
+.article > :not(:first-child) {
+    border-top: 2px dashed rgba(0, 0, 0, 0.4);
 }
 
-.you {
-    margin-block-start: 0.75em;
-    gap: 0.75em;
-}
-
-.you > * {
-    padding-block: 0.5em;
-    padding-inline: 0.75em;
-    border: 2px dashed var(--default-foreground-75);
-    border-radius: 1rem;
-}
-
-:is(.your-salary, .your-monthly-salary, .your-monthly-salary-after-deductions) .result {
+.search-form {
+    position: relative;
     font-family: 'Roboto Slab', serif;
+    font-size: 0.75em;
 }
 
-.before-monthly-salary {
-    border: 1px solid var(--default-foreground);
+.search-form-input {
+    padding: 0.5em 0.5em 0.5em 2.5em;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 2em;
 }
 
-.register-entry td {
-    padding-inline: 0.25em;
+.search-form-input:focus {
+    border-color: var(--foreground);
+    outline: var(--line) solid 3px;
 }
 
-.copyright {
-    margin-block: 2rem;
+.search-form-input:focus + .search-form-icon > .search-form-icon-path {
+    fill: var(--foreground);
 }
 
-.copyright .bubble {
-    border: 1px dotted var(--default-foreground-50);
+.search-form-icon {
+    position: absolute;
+    top: calc(50% - 12px);
+    left: 14px;
+    pointer-events: none;
 }
 
-@media screen and (max-width: 960px) {
-    .career-options-list-item {
-        min-inline-size: 0;
-        inline-size: 100%;
-    }
+.search-form-icon-path {
+    fill: rgba(0, 0, 0, 0.4);
+    fill-rule: evenodd;
+    transition: fill 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-    header {
-        padding-block: 1em 0.5em;
-    }
+.option-card-container {
+    --card-columns: 4;
+    --card-gap: 0.75em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--card-gap);
+}
 
-    .navbar {
-        padding-block: 0.5em;
-    }
+.option-card {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    gap: 0.5em;
+    padding: 20px;
+    min-width: calc(calc(100% / var(--card-columns)) - calc(calc(calc(var(--card-columns) - 1) * var(--card-gap)) / var(--card-columns)));
+    border: 2px dashed var(--foreground);
+    border-radius: 0.75em;
+    transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-    .navbar-content {
-        inline-size: 100%;
-        flex-direction: column;
-    }
+.option-card > :first-child {
+    font-size: 1.125em;
+    transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-    .navbar-content > :not(:last-child) {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        margin-block-end: 1.25em;
-        padding-block-end: 1.25em;
-        border-block-end: 2px dotted var(--default-foreground);
-    }
+.option-card-salary {
+    color: var(--foreground);
+    background: var(--green-highlight);
+    font-family: 'Roboto Slab', serif;
+    font-size: 0.875em;
+    margin-top: auto;
+    padding: 0.25em 0.5em;
+    border-radius: 2em;
+}
 
-    .navbar-item a {
-        display: inline-block;
-        inline-size: 100%;
-    }
+.option-card:hover {
+    background: var(--background);
+    border-style: solid;
+    box-shadow: 2px 2px 8px var(--foreground);
+}
+
+.option-card:hover > :first-child {
+    color: var(--foreground);
+}
+
+/* .option-card:hover > .option-card-salary {
+    font-weight: bold;
+} */
+
+.option-no-results {
+    text-align: center;
 }

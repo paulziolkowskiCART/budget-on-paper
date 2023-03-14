@@ -6,61 +6,74 @@ const formatter = Intl.NumberFormat('en-US', {
     currency: 'USD'
 });
 
-function createListItem(name, salary) {
+const locationURL = new URL(document.location);
+const searchParams = locationURL.searchParams;
+
+function createOptionCard(name, salary) {
     const encodedName = encodeURIComponent(name);
     const formattedSalary = formatter.format(salary);
 
-    const header = document.createElement('h3');
-    const headerText = document.createTextNode(name);
+    const option = document.createElement('b');
+    const optionText = document.createTextNode(name);
 
-    header.appendChild(headerText);
+    option.appendChild(optionText);
 
-    const bubble = document.createElement('div');
-    const bubbleText = document.createTextNode(formattedSalary);
+    const cardSalary = document.createElement('div');
+    const cardSalaryText = document.createTextNode(formattedSalary);
 
-    bubble.classList.add('bubble', 'salary');
-    bubble.title = 'Gross Annual Income';
-    bubble.appendChild(bubbleText);
+    cardSalary.classList.add('option-card-salary');
+    cardSalary.title = formattedSalary;
+    cardSalary.appendChild(cardSalaryText);
 
-    const listItem = document.createElement('a');
+    const card = document.createElement('a');
 
-    listItem.classList.add('career-options-list-item', 'flex', 'column');
-    listItem.href = `/calculator.html?name=${encodedName}&salary=${salary}`;
-    // Give each list item a name to help with searching
-    listItem.dataset.name = name;
-    listItem.append(header, bubble);
+    // Give each list item a name to aid with searching
+    card.dataset.name = name;
+    card.classList.add('option-card');
+    card.append(option, cardSalary);
 
-    return listItem;
+    return card;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const careerOptionsList = document.getElementById('career-options-list');
+    const container = document.getElementById('option-card-container');
+    const cards = document.getElementsByClassName('option-card');
+
+    const noResults = document.getElementById('option-no-results');
 
     // Create list items from the data given
-    const listItems = data.map(o => createListItem(...o));
+    const optionCards = data.map(o => createOptionCard(...o));
 
-    careerOptionsList.append(...listItems);
+    container.append(...optionCards);
 
-    const search = document.getElementById('search');
+    const search = document.getElementById('search-form-input');
 
     // Update the list when the user inputs into the search box
     search.addEventListener('input', e => {
         const value = e.target.value.trim().toLowerCase();
 
-        const items = document.getElementsByClassName('career-options-list-item');
-
         if (value.length > 0) {
             // Show only what matches from the search
-            Array.prototype.forEach.call(items, i => {
-                const name = i.dataset.name.trim().toLowerCase();
+            Array.prototype.forEach.call(cards, c => {
+                const name = c.dataset.name.trim().toLowerCase();
 
                 const isMatch = name.includes(value);
 
-                i.classList.toggle('none', !isMatch);
+                c.classList.toggle('hide', !isMatch);
             });
+
+            const unhiddenCard = container.querySelector('.option-card:not(.hide)');
+
+            noResults.classList.toggle('hide', unhiddenCard != null);
         } else {
             // Show all the items because the search is empty
-            Array.prototype.forEach.call(items, i => i.classList.toggle('none', false));
+            Array.prototype.forEach.call(cards, c => c.classList.toggle('hide', false));
         }
     });
+
+    const inputEvent = new Event('input');
+
+    search.value = searchParams.get('q');
+
+    search.dispatchEvent(inputEvent);
 });
