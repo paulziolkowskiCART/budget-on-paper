@@ -9,6 +9,8 @@ const formatter = Intl.NumberFormat('en-US', {
 const locationURL = new URL(document.location);
 const searchParams = locationURL.searchParams;
 
+let id = 0;
+
 function createOptionCard(name, salary) {
     const encodedName = encodeURIComponent(name);
     const formattedSalary = formatter.format(salary);
@@ -29,6 +31,7 @@ function createOptionCard(name, salary) {
 
     // Give each list item a name to aid with searching
     card.dataset.name = name;
+    card.dataset.id = ++id;
     card.classList.add('option-card');
     card.append(option, cardSalary);
 
