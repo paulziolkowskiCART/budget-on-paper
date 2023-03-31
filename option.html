@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📓</text></svg>">
+    <script type="module" src="js/option.js" defer></script>
     <title>Budget on Paper</title>
 </head>
 
@@ -19,8 +20,10 @@
             <b id="title" class="title">Budget on Paper</b>
             <nav id="navbar" class="navbar">
                 <ul class="navbar-list">
-                    <li class="navbar-list-item"><a href="">Go back</a></li>
-                    <li class="navbar-list-item"><a href="check-register.html">Open in Check Register</a></li>
+                    <li class="navbar-list-item"><a href="/">Go back</a></li>
+                    <li class="navbar-list-item">
+                        <a target="_blank" href="/check-register.html">Open in Check Register</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -39,17 +42,17 @@
                         <div class="summary-card">
                             <b>Your gross monthly income:</b>
                             <div class="slab summary-arithmetic">
-                                <span class="dividend">$55,650.00</span>
+                                <span class="dividend gross-annual">$55,650.00</span>
                                 <span>&div; 12 =</span>
-                                <span class="income">$55,650.00</span>
+                                <span class="income gross-monthly">$55,650.00</span>
                             </div>
                         </div>
                         <div class="summary-card">
                             <b>Your net monthly income:</b>
                             <div class="slab summary-arithmetic">
-                                <span class="factor">$55,650.00</span>
+                                <span class="factor gross-monthly">$55,650.00</span>
                                 <span>-</span>
-                                <span class="total-deductions">$55,650.00</span>
+                                <span class="total-deductions deductions">$55,650.00</span>
                                 <span>=</span>
                                 <span class="net-income">$55,650.00</span>
                             </div>
@@ -59,52 +62,12 @@
                 <section id="pay-period-deductions">
                     <table id="deductions-table" class="deductions-table pay-period-deductions">
                         <caption class="deductions-table-caption"><b>Pay Period Deductions</b></caption>
-                        <tbody class="deductions-table-body">
-                            <tr>
-                                <th scope="row">General Taxes</th>
-                                <td class="slab">
-                                    <span class="factor">$100.00</span>
-                                    <span>&times;</span>
-                                    <span class="deduction-percentage">100%</span>
-                                </td>
-                                <td class="slab">
-                                    <span class="deduction-amount">$100.00</span>
-                                </td>
-                                <td class="slab">=</td>
-                                <td class="slab">$100.00</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">General Taxes</th>
-                                <td class="slab">
-                                    <span class="factor">$100.00</span>
-                                    <span>&times;</span>
-                                    <span class="deduction-percentage">100%</span>
-                                </td>
-                                <td class="slab">
-                                    <span class="deduction-amount">$100.00</span>
-                                </td>
-                                <td class="slab">=</td>
-                                <td class="slab">$100.00</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">General Taxes</th>
-                                <td class="slab">
-                                    <span class="factor">$100.00</span>
-                                    <span>&times;</span>
-                                    <span class="deduction-percentage">100%</span>
-                                </td>
-                                <td class="slab">
-                                    <span class="deduction-amount">$100.00</span>
-                                </td>
-                                <td class="slab">=</td>
-                                <td class="slab">$100.00</td>
-                            </tr>
-                        </tbody>
+                        <tbody id="deductions-table-body" class="deductions-table-body"></tbody>
                         <tfoot class="deductions-table-foot">
                             <tr>
                                 <th colspan="3" scope="row">Total Deductions</th>
                                 <td class="slab">=</td>
-                                <td class="slab">$100.00</td>
+                                <td class="slab deductions">$100.00</td>
                             </tr>
                         </tfoot>
                     </table>

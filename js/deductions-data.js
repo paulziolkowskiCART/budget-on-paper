@@ -1,4 +1,4 @@
-export const data = [
+export const deductionsData = [
     ['Federal Taxes', 0.12, null],
     ['State Taxes', 0.07, null],
     ['Social Security', 0.062, null],

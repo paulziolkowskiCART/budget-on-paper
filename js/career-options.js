@@ -9,10 +9,8 @@ const formatter = Intl.NumberFormat('en-US', {
 const locationURL = new URL(document.location);
 const searchParams = locationURL.searchParams;
 
-let id = 0;
-
-function createOptionCard(name, salary) {
-    const encodedName = encodeURIComponent(name);
+function createOptionCard(name, salary, id) {
+    // const encodedName = encodeURIComponent(name);
     const formattedSalary = formatter.format(salary);
 
     const option = document.createElement('b');
@@ -31,7 +29,9 @@ function createOptionCard(name, salary) {
 
     // Give each list item a name to aid with searching
     card.dataset.name = name;
-    card.dataset.id = ++id;
+    card.dataset.id = id;
+    card.href = `/option.html?id=${id}`;
+    card.title = name;
     card.classList.add('option-card');
     card.append(option, cardSalary);
 
@@ -44,8 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const noResults = document.getElementById('option-no-results');
 
+    let optionCards = [];
+
     // Create list items from the data given
-    const optionCards = data.map(o => createOptionCard(...o));
+    for (let i = 0; i < data.length; i++) {
+        optionCards.push(createOptionCard(...data[i], i + 1));
+    }
 
     container.append(...optionCards);
 
