@@ -1,3 +1,4 @@
+import { data } from './EECU-data.js';
 import { deductionsData } from './deductions-data.js';
 
 // https://stackoverflow.com/questions/149055/how-to-format-numbers-as-currency-strings
@@ -9,9 +10,24 @@ const formatter = Intl.NumberFormat('en-US', {
 const locationURL = new URL(document.location);
 const searchParams = locationURL.searchParams;
 
-const salary = parseInt(searchParams.get('salary'));
+const id = parseInt(searchParams.get('id'));
 
-function getTotalDeductions(monthlySalary) {
+if (isNaN(id)) {
+    document.location.href = '/';
+}
+
+if (data[id - 1] === undefined) {
+    document.location.href = '/';
+}
+
+const [option, salary] = data[id - 1];
+
+const monthlySalary = salary / 12;
+
+const formattedSalary = formatter.format(salary);
+const formattedMonthlySalary = formatter.format(monthlySalary);
+
+function getTotalDeductions() {
     let total = 0;
 
     for (const [_, percentage, amount] of deductionsData) {
@@ -21,7 +37,7 @@ function getTotalDeductions(monthlySalary) {
     return total;
 }
 
-function createDeductionsTableRow(name, percentage, amount, monthlySalary) {
+function createDeductionsTableRow(name, percentage, amount) {
     const formattedDeduction = formatter.format(monthlySalary * (percentage ? parseFloat(percentage) : 0) + (amount ? parseFloat(amount) : 0));
 
     const tableHeader = document.createElement('th');
@@ -45,7 +61,7 @@ function createDeductionsTableRow(name, percentage, amount, monthlySalary) {
         const deductionPercentageSpan = document.createElement('span');
 
         factorSpan.classList.add('factor');
-        factorSpan.appendChild(document.createTextNode(formatter.format(monthlySalary)));
+        factorSpan.appendChild(document.createTextNode(formattedMonthlySalary));
         signSpan.appendChild(document.createTextNode('\u00D7'));
         deductionPercentageSpan.classList.add('deduction-percentage');
         deductionPercentageSpan.appendChild(document.createTextNode(formattedPercentage));
@@ -86,69 +102,35 @@ function createDeductionsTableRow(name, percentage, amount, monthlySalary) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const optionName = document.getElementById('option-name');
+    const optionSalary = document.getElementById('option-salary');
     const grossAnnuals = document.getElementsByClassName('gross-annual');
     const grossMonthlies = document.getElementsByClassName('gross-monthly');
     const deductions = document.getElementsByClassName('deductions');
     const netIncomes = document.getElementsByClassName('net-income');
-    const summary = document.getElementById('summary');
-    const payPeriodDeductions = document.getElementById('pay-period-deductions');
     const deductionsTableBody = document.getElementById('deductions-table-body');
-    const yourSalaryFormInput = document.getElementById('your-salary-form-input');
+    const openIn = document.querySelector('a[target="_blank"]');
 
-    if (!isNaN(salary)) {
-        yourSalaryFormInput.value = salary
+    optionName.textContent = option;
+    optionSalary.textContent = formattedSalary;
 
-        for (const grossAnnual of grossAnnuals) {
-            grossAnnual.textContent = formatter.format(salary);
-        }
-
-        for (const grossMonthly of grossMonthlies) {
-            grossMonthly.textContent = formatter.format(salary / 12);
-        }
-
-        for (const deduction of deductions) {
-            deduction.textContent = formatter.format(getTotalDeductions(salary / 12));
-        }
-
-        for (const netIncome of netIncomes) {
-            netIncome.textContent = formatter.format(salary / 12 - getTotalDeductions(salary / 12));
-        }
-
-        deductionsTableBody.textContent = '';
-        deductionsTableBody.append(...deductionsData.map(d => createDeductionsTableRow(...d, salary / 12)));
-
-        summary.classList.toggle('hide', false);
-        payPeriodDeductions.classList.toggle('hide', false);
+    for (const grossAnnual of grossAnnuals) {
+        grossAnnual.textContent = formatter.format(salary);
     }
 
-    yourSalaryFormInput.addEventListener('input', ev => {
-        const value = ev.target.value;
+    for (const grossMonthly of grossMonthlies) {
+        grossMonthly.textContent = formatter.format(monthlySalary);
+    }
 
-        if (value > 0) {
-            for (const grossAnnual of grossAnnuals) {
-                grossAnnual.textContent = formatter.format(value);
-            }
+    for (const deduction of deductions) {
+        deduction.textContent = formatter.format(getTotalDeductions());
+    }
 
-            for (const grossMonthly of grossMonthlies) {
-                grossMonthly.textContent = formatter.format(value / 12);
-            }
+    for (const netIncome of netIncomes) {
+        netIncome.textContent = formatter.format(monthlySalary - getTotalDeductions());
+    }
 
-            for (const deduction of deductions) {
-                deduction.textContent = formatter.format(getTotalDeductions(value / 12));
-            }
+    deductionsTableBody.append(...deductionsData.map(d => createDeductionsTableRow(...d)));
 
-            for (const netIncome of netIncomes) {
-                netIncome.textContent = formatter.format(value / 12 - getTotalDeductions(value / 12));
-            }
-
-            deductionsTableBody.textContent = '';
-            deductionsTableBody.append(...deductionsData.map(d => createDeductionsTableRow(...d, value / 12)));
-
-            summary.classList.toggle('hide', false);
-            payPeriodDeductions.classList.toggle('hide', false);
-        } else {
-            summary.classList.toggle('hide', true);
-            payPeriodDeductions.classList.toggle('hide', true);
-        }
-    });
+    openIn.href = `/check-register.html?id=${id}`;
 });
