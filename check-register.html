@@ -7,244 +7,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
-    <title>Register - Budget on Paper</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📓</text></svg>">
+    <script type="module" src="js/check-register.js" defer></script>
+    <title>Budget on Paper</title>
 </head>
 
 <body>
-    <div class="header-wrapper">
-        <header class="flex center-justify">
-            <h1>Budget on Paper</h1>
-        </header>
-        <div class="navbar">
-            <div class="container flex center-justify">
-                <ul id="navbar-content" class="navbar-content flex">
-                    <li class="navbar-item"><a href="/">Select a Career</a></li>
-                    <li class="navbar-item"><a href="/calculator.html">Calculator</a></li>
-                    <li class="navbar-item"><a class="bold" href="/register.html">Check Register</a></li>
+    <header id="header" class="header">
+        <div class="header-container">
+            <b id="title" class="title">Budget on Paper</b>
+            <nav id="navbar" class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-list-item"><a href="/">Select a Career Option</a></li>
+                    <li class="navbar-list-item"><a href="calculator.html">Calculator</a></li>
+                    <li class="navbar-list-item"><a href=""><strong>Check Register</strong></a></li>
                 </ul>
-            </div>
+            </nav>
         </div>
-    </div>
-    <div class="article">
-        <div class="container">
-            <div class="content-box">
-                <div class="content">
-                    <h2>Check Register</h2>
-                    <p>Use this interactive check register to record and organize your deposits and withdrawals.</p>
-                    <table class="check-register">
-                        <caption class="check-register-caption bold">Check Register</caption>
-                        <tbody class="check-register-body">
-                            <tr class="register-entry-headings">
+    </header>
+    <div class="main-wrapper">
+        <main id="main" class="main">
+            <article class="article">
+                <section id="career-options">
+                    <table id="check-register-table" class="check-register-table">
+                        <caption class="check-register-table-caption"><b>Check Register</b></caption>
+                        <tbody id="check-register-table-body" class="check-register-table-body">
+                            <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Transaction Description</th>
                                 <th scope="col">Withdrawal</th>
-                                <th scope="col"></th>
                                 <th scope="col">Deposit</th>
                                 <th scope="col">Balance</th>
                             </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
-                            </tr>
-                            <tr class="register-entry">
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px;" type="date"></td>
-                                <td><input style="font-size: 24px;" type="text"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 24px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 80px;" type="number"></td>
-                                <td><input style="font-size: 24px; inline-size: 100px;" type="number"></td>
+                            <tr>
+                                <td class="slab">
+                                    <input type="number" name="" spellcheck="true" placeholder="#" class="check-register-input">
+                                </td>
+                                <td class="slab">
+                                    <input type="date" name="" class="check-register-input">
+                                </td>
+                                <td class="slab">
+                                    <textarea name="" rows="3"></textarea>
+                                </td>
+                                <td class="slab">
+                                    <input type="number" name="" placeholder="0" class="check-register-input">
+                                </td>
+                                <td class="slab">
+                                    <input type="number" name="" placeholder="0" class="check-register-input">
+                                </td>
+                                <td class="slab">
+                                    <input type="number" name="" placeholder="0" class="check-register-input">
+                                </td>
                             </tr>
                         </tbody>
-                        <tfoot class="check-register-foot"></tfoot>
                     </table>
-                </div>
-            </div>
-            <div class="small bold center copyright">&copy; <span class="bubble">2023</span> Paul Ziolkowski</div>
-        </div>
+                </section>
+            </article>
+        </main>
     </div>
+    <footer id="footer" class="footer">
+        <div class="footer-container">
+            <p id="copyright" class="copy">&copy; <span class="year">2023</span> <b>Paul Ziolkowski</b></p>
+            <ul class="footer-info-list">
+                <li><a href="mailto:paul.ziolkowski@student.cart.org">Contact</a></li>
+                <li>
+                    <p>2555 Clovis Ave, Clovis, CA 93612</p>
+                </li>
+                <li><a href="tel:+1(559)248-7400">(559) 248-7400</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 
 </html>
