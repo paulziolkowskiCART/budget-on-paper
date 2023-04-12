@@ -532,6 +532,28 @@ span.dividend {
     padding: 0.25em 0.5em;
 }
 
+.add-button {
+    display: flex;
+    margin: 2em auto 0;
+    padding: 1em;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    transition: border 0.2s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.add-button:hover {
+    border: 2px solid black;
+}
+
+.add-button:hover .add-button-icon-path {
+    stroke: black;
+}
+
+.add-button-icon-path {
+    stroke: rgba(0, 0, 0, 0.6);
+    transition: stroke 0.2s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
 @media screen and (max-width: 1080px) {
     .option-card-container {
         --card-columns: 2;
