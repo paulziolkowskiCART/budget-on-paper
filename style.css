@@ -1,10 +1,10 @@
 :root {
-    --default-foreground: #343536;
-    --default-foreground-50: #34353650;
-    --default-foreground-75: #34353675;
-    --default-background: #fbf9f6;
-    --highlight: #ffda1450;
-    --green-highlight: #39ff1450;
+    --foreground: #343637;
+    --foreground-50: #34363780;
+    --background: #fbf9f6;
+    --line: #95d6e5;
+    --highlight: #ffdc1450;
+    --green-highlight: #38ff1450;
     --purple-highlight: #dc14ff50;
 }
 
@@ -13,259 +13,326 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
+    scrollbar-color: var(--line) var(--background);
+}
+
+html {
+    font-size: 24px;
+    font-family: 'Indie Flower', cursive;
 }
 
 body {
-    --body-background-size: 32px 32px;
-    color: var(--default-foreground);
-    background: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_18_3)'%3E%3Crect width='32' height='32' fill='%23FBF9F6'/%3E%3Cg filter='url(%23filter0_f_18_3)'%3E%3Cpath d='M-1 16H33M16 -1V33' stroke='%2395D6E5' stroke-opacity='0.5' stroke-linejoin='round'/%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_18_3' x='-2' y='-2' width='36' height='36' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='0.5' result='effect1_foregroundBlur_18_3'/%3E%3C/filter%3E%3CclipPath id='clip0_18_3'%3E%3Crect width='32' height='32' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") var(--body-background-size);
-    font-family: 'Indie Flower', cursive;
-    font-size: 20px;
-    /* writing-mode: sideways-lr; */
-}
-
-header {
-    color: var(--default-foreground);
-    padding-block: 0.5em 0.25em;
-}
-
-h1 {
-    font-size: 44px;
-    text-align: center;
-    text-shadow: #fc0 1px 0 10px;
-}
-
-h3 {
-    margin-block-end: 0.25em;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: var(--foreground);
+    background: url("data:image/svg+xml,%3Csvg width='192' height='192' viewBox='0 0 192 192' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_101_2)'%3E%3Cg filter='url(%23filter0_f_101_2)'%3E%3Cpath d='M64 -2V194M96 -2V194M128 -2V194M160 -2V194M192 -2V194M0 -2V194M-2 0H194M-2 64H194M-2 96H194M-2 128H194M-2 160H194M-2 192H194' stroke='%2395D6E5' stroke-opacity='0.4'/%3E%3C/g%3E%3Cg filter='url(%23filter1_f_101_2)'%3E%3Cpath d='M32 -2V194M-2 32H194' stroke='%2395D6E5' stroke-opacity='0.6' stroke-width='2'/%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_101_2' x='-3' y='-3' width='198' height='198' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='0.5' result='effect1_foregroundBlur_101_2'/%3E%3C/filter%3E%3Cfilter id='filter1_f_101_2' x='-3' y='-3' width='198' height='198' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='0.5' result='effect1_foregroundBlur_101_2'/%3E%3C/filter%3E%3CclipPath id='clip0_101_2'%3E%3Crect width='192' height='192' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") var(--background);
 }
 
 a {
-    color: var(--default-foreground);
+    color: inherit;
     text-decoration: none;
-}
-
-input {
-    background: none;
-    /* padding-inline: 0.75em; */
-    border-block-end: 2px dotted var(--default-foreground);
-}
-
-input:focus {
-    border: none;
-    border-radius: 2em;
-    outline-offset: 0.25em;
 }
 
 ul,
 ol {
-    list-style: none;
+    list-style-type: none;
 }
 
-table {
-    inline-size: 100%;
-    padding-inline: 0.75em;
-    margin-block-start: 0.75em;
-    border: 2px dashed var(--default-foreground);
-    border-radius: 1rem;
-}
-
-caption {
-    margin-block-end: 0.75em;
-}
-
-td {
-    font-family: 'Roboto Slab', serif;
-}
-
-td,
-th {
-    padding-block: 0.75em;
-}
-
-th[scope=col] {
-    /* border-inline-end: 2px dotted var(--default-foreground-75); */
-}
-
-tbody > :not(:last-child) :is(td, th) {
-    border-block-end: 2px dashed var(--default-foreground);
-    border-collapse: collapse;
-}
-
-tfoot {
-    font-size: 24px;
-}
-
-tfoot > :first-child :is(td, th) {
-    border-block-start: 2px solid var(--default-foreground);
-    border-collapse: collapse;
-}
-
-.foreground-faded {
-    color: var(--default-foreground-75);
-}
-
-.small {
-    font-size: 16px;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.center {
-    text-align: center;
-}
-
-.end {
-    text-align: end;
-}
-
-.help {
-    cursor: help;
-    text-decoration: underline var(--highlight) solid 3px;
-}
-
-.flex {
-    display: flex;
-}
-
-.none {
-    display: none;
-}
-
-.column {
-    flex-direction: column;
-}
-
-.center-justify {
-    justify-content: center;
-}
-
-.center-align {
-    align-items: center;
-}
-
-.wrap {
-    flex-wrap: wrap;
-}
-
-.container {
-    --container-width: 90%;
-    --container-min-width: 0;
-    --container-max-width: 960px;
-    inline-size: var(--container-width);
-    min-inline-size: var(--container-min-width);
-    max-inline-size: var(--container-max-width);
-    margin-inline: auto;
-}
-
-.navbar {
-    padding-block: 0.25em;
-}
-
-.navbar-content > :not(:last-child) {
-    margin-inline-end: 1.25em;
-    padding-inline-end: 1.25em;
-    border-inline-end: 2px dotted var(--default-foreground);
-}
-
-.navbar-item {
-    text-shadow: 1px 0 0 var(--default-background), 0 1px 0 var(--default-background), -1px 0 0 var(--default-background), 0 -1px 0 var(--default-background);
-}
-
-.navbar-item a:hover {
-    font-weight: bold;
-}
-
-.article {
-    margin-block: 1rem;
-}
-
-.content-box {
-    padding-block: 1.25em;
-    border: 3px dashed var(--default-foreground-50);
-    border-radius: 1.25rem;
-}
-
-.content {
-    margin-inline: 1.25em;
-}
-
-.content ul {
-    list-style: disc;
-    margin-inline-start: 2em;
-}
-
-.content ol {
-    list-style: decimal;
-    margin-inline-start: 2em;
-}
-
-.career-options {
-    margin-block-start: 1.5rem;
-}
-
-.career-options-list {
-    --career-options-list-gap: 0.75em;
-    gap: var(--career-options-list-gap);
-}
-
-.career-options-list-item {
-    --career-options-list-item-columns: 4;
-    min-inline-size: calc(calc(100% - calc(var(--career-options-list-gap) * calc(var(--career-options-list-item-columns) - 1))) / var(--career-options-list-item-columns));
-    padding-block: 0.8em;
-    padding-inline: 0.666em;
-    border: 2px dashed var(--default-foreground);
-    border-radius: 1rem;
-    transition: background 500ms ease-out;
-}
-
-.career-options-list-item:hover {
-    background: var(--default-background);
-    border-style: solid;
-    box-shadow: 2px 2px 5px var(--default-foreground);
-}
-
-.career-options-list-item:hover .bubble.salary {
-    font-weight: bold;
-}
-
-.career-options-search {
-    margin-block-start: 1.5rem;
-    gap: 0.5rem;
-    font-size: 32px;
-}
-
-.career-options-search img {
-    width: 1em;
-}
-
-.career-options-search input {
-    padding-inline: 0.75em;
-    flex: auto;
-}
-
-.bubble {
-    display: inline-block;
-    padding-block: 0.25em;
-    padding-inline: 0.5em;
-    border-radius: 2em;
-    font-family: 'Roboto Slab', serif;
-    font-size: 1em;
+a[target='_blank']::after {
+    content: ' ↗';
+    font-size: 0.75em;
     vertical-align: middle;
 }
 
-.salary {
+/* input[type='text'] {
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+} */
+
+form {
+    font-family: 'Roboto Slab', serif;
+}
+
+input {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 2em;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.25em;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    font-size: 0.5em;
+}
+
+.hide {
+    display: none !important;
+}
+
+.slab {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1em;
+}
+
+.main section {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.main section :is(h1, h2, h3, h4, h5, h6, p, ul, ol, hr, b, span:not(.option-card-salary, .option-salary, .income, .net-income, .deduction-percentage, .deduction-amount)),
+.main section table :is(caption, th, td) {
+    text-shadow: var(--background) 0 0 2px, var(--background) 0 0 4px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px, var(--background) 0 0 8px;
+}
+
+.main section > h1 {
+    font-size: 1.5em;
+    margin-block-end: 0.2em;
+}
+
+.main a,
+.footer a,
+.option-no-results {
+    color: #2789a0;
+    text-decoration: dotted;
+}
+
+.main a:visited,
+.footer a:visited {
+    color: #52a0b3;
+}
+
+.main ul {
+    list-style-type: disc;
+    padding-inline-start: 1em;
+}
+
+.main ol {
+    list-style-type: decimal;
+    padding-inline-start: 1em;
+}
+
+.main hr {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    margin-block: 0.75em 1.25em;
+    margin-inline: 0.75em;
+}
+
+.header {
+    background: linear-gradient(var(--background), var(--background) 50%, transparent);
+    padding: 1em 0;
+}
+
+.header-container,
+.footer-container {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* gap: 0.75em; */
+    max-width: 1080px;
+    min-width: 0;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.title {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.75rem;
+    font-size: 2rem;
+    text-shadow: var(--line) 0 0 10px;
+    text-align: center;
+    /* -webkit-user-select: none; */
+    /* -moz-user-select: none; */
+    /* -ms-user-select: none; */
+    user-select: none;
+}
+
+.navbar-list {
+    display: flex;
+    justify-content: center;
+}
+
+/* .navbar-list-item {
+    text-align: center;
+} */
+
+.navbar-list-item:not(:last-child) {
+    margin-right: 1em;
+    padding-right: 1em;
+    border-right: 2px dashed var(--foreground);
+}
+
+.navbar-list-item a {
+    transition: text-shadow 0.1s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.navbar-list-item a > strong {
+    text-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px;
+}
+
+.navbar-list-item a:hover {
+    text-shadow: rgba(0, 0, 0, 0.4) 1px 1px 2px;
+}
+
+.footer {
+    font-size: 0.875em;
+    background: linear-gradient(transparent, var(--background) 50%, var(--background));
+    padding: 3em 0;
+}
+
+.footer a:hover {
+    text-decoration: underline solid;
+    text-shadow: var(--line) 0 0 4px;
+}
+
+/* .footer-container {
+    gap: 2em;
+} */
+
+.copy {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.year {
+    font-family: 'Roboto Slab', serif;
+    margin-inline: 0.25em;
+    padding-inline: 0.5em;
+    padding-block: 0.25em;
+    border: 2px dashed rgba(0, 0, 0, 0.1);
+    border-radius: 2em;
+    vertical-align: middle;
+    transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.copy:hover .year {
+    border-color: rgba(0, 0, 0, 0.4);
+    text-shadow: var(--line) 0 0 8px;
+}
+
+.footer-info-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+/* .footer-info-list li:not(:last-child) {
+    margin-right: 2em;
+} */
+
+.main-wrapper {
+    flex: 1;
+    padding: 1em 0;
+}
+
+.main {
+    max-width: 1080px;
+    min-width: 0;
+    width: 90%;
+    margin: 0 auto;
+    border: 2px dashed rgba(0, 0, 0, 0.4);
+    border-radius: 1em;
+}
+
+.article > * {
+    margin-bottom: 1.25em;
+    padding: 1.25em 1.25em 0;
+}
+
+.article > :not(:first-child) {
+    border-top: 2px dashed rgba(0, 0, 0, 0.4);
+}
+
+.search-form {
+    position: relative;
+    font-size: 0.75em;
+}
+
+.search-form-input {
+    width: 100%;
+    padding: 0.5em 1em 0.5em 2.5em;
+}
+
+.search-form-input:focus {
+    border-color: var(--foreground);
+    outline: var(--line) solid 3px;
+}
+
+.search-form-input:focus + .search-form-icon > .search-form-icon-path {
+    fill: var(--foreground);
+}
+
+.search-form-icon {
+    position: absolute;
+    top: calc(50% - 12px);
+    left: 0.75em;
+    pointer-events: none;
+}
+
+.search-form-icon-path,
+.your-salary-form-icon-path {
+    fill: rgba(0, 0, 0, 0.4);
+    fill-rule: evenodd;
+    transition: fill 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.option-card-container {
+    --card-columns: 4;
+    --card-gap: 0.75em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--card-gap);
+}
+
+.option-card {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    gap: 0.5em;
+    padding: 20px;
+    min-width: calc(calc(100% / var(--card-columns)) - calc(calc(calc(var(--card-columns) - 1) * var(--card-gap)) / var(--card-columns)));
+    border: 2px dashed var(--foreground);
+    border-radius: 0.75em;
+    transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.option-card > :first-child {
+    font-size: 1.125em;
+    transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.option-card-salary,
+.option-salary,
+.income,
+.net-income,
+.deduction-percentage,
+.deduction-amount {
+    color: var(--foreground);
     background: var(--green-highlight);
-    align-self: flex-start;
+    font-family: 'Roboto Slab', serif;
+    font-size: 0.875em;
+    padding: 0.25em 0.5em;
+    border-radius: 2em;
+    text-shadow: none;
 }
 
-.deduction-name {
-    text-align: start;
+.option-card-salary {
+    margin-top: auto;
 }
 
-.total-deductions .deduction-name {
-    color: darkred;
+h1 + .option-salary {
+    margin-left: 1em;
+}
+
+.net-income {
+    background: var(--highlight);
 }
 
 .deduction-percentage,
@@ -273,82 +340,281 @@ tfoot > :first-child :is(td, th) {
     background: var(--purple-highlight);
 }
 
-.net {
-    background: var(--highlight);
-    /* border: 2px solid var(--default-foreground); */
+.option-card:hover {
+    background: var(--background);
+    border-style: solid;
+    box-shadow: 2px 2px 8px var(--foreground);
 }
 
-.deduction-total {
+.option-card:hover > :first-child {
+    color: var(--foreground);
+}
+
+/* .option-card:hover > .option-card-salary {
+    font-weight: bold;
+} */
+
+.option-no-results {
+    text-align: center;
+}
+
+.option-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 1.5em;
+}
+
+.your-salary-heading {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    align-items: baseline;
+    font-size: 1em;
+}
+
+.option-heading h1 {
+    font-size: 1em;
+}
+
+.deductions-table,
+.check-register-table {
+    width: 100%;
+    overflow-x: scroll;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    border-radius: 0.5em;
+    border-spacing: 0;
+}
+
+.deductions-table-caption,
+.check-register-table-caption {
+    margin-bottom: 1em;
+}
+
+:is(.deductions-table-body, .deductions-table-foot) :is(th, td),
+:is(.check-register-table-body, .check-register-table-foot) :is(th, td) {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.deductions-table-body :is(th, td) {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+}
+
+:is(.deductions-table-body, .deductions-table-foot) :is(th, td):first-child {
+    padding-left: 1em;
+    text-align: start;
+}
+
+:is(.deductions-table-body, .deductions-table-foot) :is(th, td):last-child {
+    padding-right: 1em;
     text-align: end;
 }
 
-.result {
-    font-size: 2rem;
-    /* line-height: 2rem; */
+:is(.deductions-table-body, .deductions-table-foot) :is(th, td):not(:last-child) {
+    padding-right: 0.5em;
 }
 
-.you {
-    margin-block-start: 0.75em;
-    gap: 0.75em;
+.deductions-table-foot {
+    font-size: 1.25em;
 }
 
-.you > * {
-    padding-block: 0.5em;
-    padding-inline: 0.75em;
-    border: 2px dashed var(--default-foreground-75);
-    border-radius: 1rem;
+.deductions-table-foot th,
+.total-deductions {
+    color: darkred;
 }
 
-:is(.your-salary, .your-monthly-salary, .your-monthly-salary-after-deductions) .result {
-    font-family: 'Roboto Slab', serif;
+.deductions-table-foot td:last-child {
+    font-weight: bold;
 }
 
-.before-monthly-salary {
-    border: 1px solid var(--default-foreground);
+span.term,
+span.factor,
+span.dividend {
+    color: var(--foreground-50);
+    font-size: 75%;
+    vertical-align: 0.1em;
 }
 
-.register-entry td {
-    padding-inline: 0.25em;
+.summary-card-container {
+    /* padding: 1em; */
+    min-width: fit-content;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    border-radius: 0.5em;
 }
 
-.copyright {
-    margin-block: 2rem;
+.summary-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
 }
 
-.copyright .bubble {
-    border: 1px dotted var(--default-foreground-50);
+.summary-card :first-child {
+    white-space: nowrap;
+}
+
+.summary-card:not(:last-child) {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+}
+
+.summary-arithmetic {
+    margin-top: 1em;
+    padding-left: 1em;
+    font-size: 150%;
+    text-align: end;
+    white-space: nowrap;
+}
+
+.total-deductions {
+    font-weight: bold;
+}
+
+.your-salary-form {
+    position: relative;
+    /* margin-left: 1em; */
+    font-size: 1em;
+    padding-bottom: 3px;
+}
+
+.your-salary-form-input {
+    width: 10em;
+    padding: 0.25em 0em 0.25em 1.5em;
+    text-align: end;
+}
+
+.your-salary-form-icon {
+    position: absolute;
+    top: calc(50% - 12px - 2px);
+    left: 0.5em;
+    pointer-events: none;
+}
+
+.your-salary-form-input:focus {
+    border-color: var(--foreground);
+    outline: var(--line) solid 3px;
+}
+
+.your-salary-form-input:focus + .your-salary-form-icon > .your-salary-form-icon-path {
+    fill: var(--foreground);
+}
+
+.your-salary-header {
+    font-weight: normal;
+    font-size: 0.8em;
+    /* vertical-align: middle; */
+}
+
+.check-register-table-body tr:not(:last-child) :is(th, td) {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+}
+
+:is(.check-register-table-body, .check-register-table-foot) :is(th, td) {
+    max-width: 8em;
+}
+
+:is(.check-register-table-body, .check-register-table-foot) :is(th, td):first-child {
+    width: 4.5em;
+    padding-left: 1em;
+}
+
+:is(.check-register-table-body, .check-register-table-foot) :is(th, td):last-child {
+    padding-right: 1em;
+}
+
+:is(.check-register-table-body, .check-register-table-foot) :is(th, td):not(:last-child) {
+    padding-right: 0.5em;
+}
+
+.check-register-input {
+    width: 100%;
+    padding: 0.25em 0.5em;
+}
+
+.add-button {
+    display: flex;
+    margin: 2em auto 0;
+    padding: 1em;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    transition: border 0.2s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.add-button:hover {
+    border: 2px solid black;
+}
+
+.add-button:hover .add-button-icon-path {
+    stroke: black;
+}
+
+.add-button-icon-path {
+    stroke: rgba(0, 0, 0, 0.6);
+    transition: stroke 0.2s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+@media screen and (max-width: 1080px) {
+    .option-card-container {
+        --card-columns: 2;
+    }
+
+    .summary-card {
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 960px) {
-    .career-options-list-item {
-        min-inline-size: 0;
-        inline-size: 100%;
+    .option-card-container {
+        --card-columns: 1;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .title {
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
     }
 
-    header {
-        padding-block: 1em 0.5em;
-    }
-
-    .navbar {
-        padding-block: 0.5em;
-    }
-
-    .navbar-content {
-        inline-size: 100%;
+    .navbar-list {
         flex-direction: column;
     }
 
-    .navbar-content > :not(:last-child) {
-        margin: 0;
-        padding: 0;
+    .navbar-list-item:not(:last-child) {
+        margin: 0 0 1em 0;
+        padding: 0 0 1em 0;
         border: 0;
-        margin-block-end: 1.25em;
-        padding-block-end: 1.25em;
-        border-block-end: 2px dotted var(--default-foreground);
+        border-bottom: 2px dashed var(--foreground);
     }
 
-    .navbar-item a {
-        display: inline-block;
-        inline-size: 100%;
+    .navbar-list-item a {
+        width: 100%;
+        display: block;
+        /* text-align: center; */
+    }
+
+    .option-heading,
+    .your-salary-heading {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+
+    .option-salary,
+    .your-salary-form {
+        margin: 0 !important;
+    }
+
+    .your-salary-form {
+        width: 100%;
+    }
+
+    .your-salary-form-input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    html {
+        font-size: 20px;
     }
 }

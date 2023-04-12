@@ -70,5 +70,5 @@ export const data = [
     ['UPS/Fed Ex Driver', 68250],
     ['Veterinarian', 82950],
     ['Welder/Metal Specialist', 47250],
-    ['Wind Energy Technician', 56700],
+    ['Wind Energy Technician', 56700]
 ];

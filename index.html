@@ -7,50 +7,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📓</text></svg>">
+    <script type="module" src="js/career-options.js" defer></script>
     <title>Budget on Paper</title>
 </head>
 
 <body>
-    <div class="header-wrapper">
-        <header class="flex center-justify">
-            <h1>Budget on Paper</h1>
-        </header>
-        <div class="navbar">
-            <div class="container flex center-justify">
-                <ul id="navbar-content" class="navbar-content flex">
-                    <li class="navbar-item"><a class="bold" href="/">Select a Career</a></li>
-                    <li class="navbar-item"><a href="/calculator.html">Calculator</a></li>
-                    <li class="navbar-item"><a href="/register.html">Check Register</a></li>
+    <header id="header" class="header">
+        <div class="header-container">
+            <b id="title" class="title">Budget on Paper</b>
+            <nav id="navbar" class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-list-item"><a href=""><strong>Select a Career Option</strong></a></li>
+                    <li class="navbar-list-item"><a href="calculator.html">Calculator</a></li>
+                    <li class="navbar-list-item"><a href="check-register.html">Check Register</a></li>
                 </ul>
-            </div>
+            </nav>
         </div>
+    </header>
+    <div class="main-wrapper">
+        <main id="main" class="main">
+            <article class="article">
+                <section id="select-a-career-option">
+                    <h1>Select a Career Option</h1>
+                    <p>Select a career option from this list and view salaries for each option.</p>
+                </section>
+                <section id="career-options">
+                    <form action="" id="search-form" class="search-form">
+                        <input type="text" name="q" spellcheck="true" placeholder="Search career options..." id="search-form-input" class="search-form-input">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" class="search-form-icon">
+                            <path d="M2 9.5a7.5 7.5 0 1 1 12.916 5.188 1.014 1.014 0 0 0-.228.228A7.5 7.5 0 0 1 2 9.5Zm13.473 7.387A9.46 9.46 0 0 1 9.5 19 9.5 9.5 0 1 1 19 9.5a9.46 9.46 0 0 1-2.113 5.973l6.82 6.82a1 1 0 0 1-1.414 1.414l-6.82-6.82Z" class="search-form-icon-path" />
+                        </svg>
+                    </form>
+                    <hr>
+                    <div id="option-card-container" class="option-card-container"></div>
+                    <p id="option-no-results" class="option-no-results hide"><b>No results found...</b></p>
+                </section>
+            </article>
+        </main>
     </div>
-    <div class="article">
-        <div class="container">
-            <div class="content-box">
-                <div class="content">
-                    <h2>Select a Career Option</h2>
-                    <p>Search for and select a career option from the list and view it's gross annual income.</p>
-                    <div class="flex career-options-search">
-                        <img src="assets/magnifying-glass.png" alt="">
-                        <input type="text" placeholder="Search" name="q" id="search">
-                    </div>
-                    <div class="career-options">
-                        <p class="none small bold center">No results found</p>
-                        <div class="career-options-list flex wrap">
-                            <script type="module" src="scripts/career-options.js"></script>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="small bold center copyright">&copy; <span class="bubble">2023</span> Paul Ziolkowski</div>
+    <footer id="footer" class="footer">
+        <div class="footer-container">
+            <p id="copyright" class="copy">&copy; <span class="year">2023</span> <b>Paul Ziolkowski</b></p>
+            <ul class="footer-info-list">
+                <li><a href="mailto:paul.ziolkowski@student.cart.org">Contact</a></li>
+                <li>
+                    <p>2555 Clovis Ave, Clovis, CA 93612</p>
+                </li>
+                <li><a href="tel:+1(559)248-7400">(559) 248-7400</a></li>
+            </ul>
         </div>
-    </div>
+    </footer>
 </body>
 
 </html>

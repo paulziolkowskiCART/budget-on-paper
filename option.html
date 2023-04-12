@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📓</text></svg>">
-    <script type="module" src="js/calculator.js" defer></script>
+    <script type="module" src="js/option.js" defer></script>
     <title>Budget on Paper</title>
 </head>
 
@@ -31,18 +31,13 @@
     <div class="main-wrapper">
         <main id="main" class="main">
             <article class="article">
-                <section id="calculator">
-                    <div class="your-salary-heading">
-                        <h1 class="your-salary-header slab">Your salary:</h1>
-                        <form action="" id="your-salary-form" class="your-salary-form">
-                            <input type="number" name="salary" spellcheck="false" placeholder="55650" id="your-salary-form-input" class="your-salary-form-input">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="your-salary-form-icon" xmlns="http://www.w3.org/2000/svg">
-                                <path class="your-salary-form-icon-path" d="M13 1C13 0.447715 12.5523 0 12 0C11.4477 0 11 0.447715 11 1V2.02679C8.18012 2.18292 6.3955 3.01016 5.31921 4.20604C4.13255 5.52454 4 7.08324 4 8C4 9.14685 4.52235 10.4451 5.84002 11.4269C6.97936 12.2758 8.65549 12.8485 11 12.974V19.97C8.58923 19.8188 7.40482 19.1216 6.80579 18.456C6.11745 17.6912 6 16.7499 6 16C6 15.4477 5.55228 15 5 15C4.44772 15 4 15.4477 4 16C4 16.9168 4.13255 18.4755 5.31921 19.794C6.3955 20.9898 8.18012 21.8171 11 21.9732V23C11 23.5523 11.4477 24 12 24C12.5523 24 13 23.5523 13 23V21.9757C15.7934 21.8352 17.5814 21.092 18.667 19.9339C19.8769 18.6434 20 17.059 20 16C20 14.718 19.5004 13.3939 18.1392 12.433C16.9933 11.6242 15.3178 11.1306 13 11.0225V4.03C15.4108 4.18116 16.5952 4.87838 17.1942 5.54396C17.8825 6.30879 18 7.25009 18 8C18 8.55228 18.4477 9 19 9C19.5523 9 20 8.55228 20 8C20 7.08324 19.8675 5.52454 18.6808 4.20604C17.6045 3.01016 15.8199 2.18292 13 2.02679V1ZM11 4.03C8.58923 4.18116 7.40482 4.87838 6.80579 5.54396C6.11745 6.30879 6 7.25009 6 8C6 8.51982 6.22765 9.22157 7.03498 9.82312C7.75311 10.3582 8.98152 10.8486 11 10.9709V4.03ZM13 13.025V19.9731C15.4377 19.8356 16.6185 19.1948 17.208 18.5661C17.8731 17.8566 18 16.941 18 16C18 15.282 17.7496 14.6061 16.9858 14.067C16.2744 13.5648 15.0455 13.1314 13 13.025Z" fill="white" />
-                            </svg>
-                        </form>
+                <section id="option">
+                    <div class="option-heading">
+                        <h1 id="option-name">Accountant</h1>
+                        <div id="option-salary" class="option-salary">$55,650.00</div>
                     </div>
                 </section>
-                <section id="summary" class="hide">
+                <section id="summary">
                     <div class="summary-card-container">
                         <div class="summary-card">
                             <b>Your gross monthly income:</b>
@@ -64,7 +59,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="pay-period-deductions" class="hide">
+                <section id="pay-period-deductions">
                     <table id="deductions-table" class="deductions-table pay-period-deductions">
                         <caption class="deductions-table-caption"><b>Pay Period Deductions</b></caption>
                         <tbody id="deductions-table-body" class="deductions-table-body"></tbody>
